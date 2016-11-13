@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:fieldset legend="Cadastro de Local de Infração">
+			<p:panelGrid columns="2">
+				<h:outputLabel value="Descrição" />
+				<p:inputText value="#{localInfracaoMB.localInfracao.descricaoLocalInfracao}" />
+				
+				<h:outputLabel value="Velocidade Permitida" />
+				<p:inputText value="#{localInfracaoMB.localInfracao.velocidadePermitida}" />
+			</p:panelGrid>
+			<p:commandButton value="Salvar" action="#{localInfracaoMB.inserir()}" update="@form"></p:commandButton>
+		</p:fieldset>
+		<p:dataTable var="local" value="#{localInfracaoMB.locais}">
+			<p:column headerText="Local de Infração">
+				<h:outputText value="#{local.descricaoLocalInfracao}" />
+			</p:column>
+			
+			<p:column headerText="Velocidade Permitida">
+				<h:outputText value="#{local.velocidadePermitida}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
